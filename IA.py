@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[41]:
-
 
 # Passo 1: Entendimento do Desafio
 # Passo 2: Entendimento da Área/Empresa
@@ -18,16 +13,6 @@ display(tabela)
 # Passo 4: Ajuste de Dados (Tratamento/Limpeza)
 print(tabela.info())
 
-
-# In[42]:
-
-
-
-
-
-# In[43]:
-
-
 # Passo 6: Modelagem + Algoritmos (Aqui que entra a Inteligência Artificial, se necessário)
 
 #Preparação
@@ -41,10 +26,6 @@ x = tabela.drop("Preco", axis=1)
 from sklearn.model_selection import train_test_split
 
 x_treino, x_teste, y_treino, y_teste = train_test_split(x,y,test_size=0.3, random_state=1)
-
-
-# In[44]:
-
 
 # Criação e treino da IA
 
@@ -63,10 +44,6 @@ modelo_arvoredecisao = RandomForestRegressor()
 modelo_regressaolinear.fit(x_treino,y_treino)
 modelo_arvoredecisao.fit(x_treino,y_treino)
 
-
-# In[46]:
-
-
 previsao_regressaolinear = modelo_regressaolinear.predict(x_teste)
 previsao_arvoredecisao = modelo_arvoredecisao.predict(x_teste)
 
@@ -74,10 +51,6 @@ from sklearn.metrics import r2_score
 
 print(r2_score(y_teste,previsao_regressaolinear))
 print(r2_score(y_teste, previsao_arvoredecisao))
-
-
-# In[61]:
-
 
 # Passo 7: Interpretação de Resultados
 
@@ -88,9 +61,6 @@ tabela_auxiliar["Previsoes Regressao Linear"] = previsao_regressaolinear
 
 sns.lineplot(data=tabela_auxiliar)
 plt.show()
-
-
-# In[64]:
 
 
 tabela_nova = pd.read_csv("novos_barcos.csv")
